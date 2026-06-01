@@ -69,7 +69,7 @@ const calculateAverage = (s1, s2, s3, s4 = 0, count = 3) => {
 
 console.log(calculateAverage(70, 80, 90));
 console.log(calculateAverage(70, 80, 90, 100, 4));
-
+console.log("2.2   calculateWeightedScore(exam, homework, bonus = 0)")
 
 // 2.2   calculateWeightedScore(exam, homework, bonus = 0)
 
@@ -171,3 +171,27 @@ const mathTracker = createTracker("Mathematics");
 (mathTracker(78));
 (mathTracker(45));
 (mathTracker(92));
+console.log('Bonus — The Final Report')
+
+// Bonus — The Final Report
+
+function  printStudentReport(name, exam, homework, attendance, bonus) {
+    let finalScore = calculateWeightedScore(exam, homework, bonus);
+    let grade= getLetterGrade(finalScore)
+    let retake = isEligibleForRetake(finalScore, attendance) ? "YES" : "No"
+
+
+    console.log(`Student: ${name}
+------------------------------
+Exam:       ${exam}   (weight: 60%) 
+Homework:   ${homework}   (weight: 40%)
+Bonus:       ${bonus}    pts 
+Final score: ${finalScore} 
+Grade:       ${grade}
+Attadence:   ${attendance}% 
+Retake:      ${retake}
+================================`)
+}
+
+
+printStudentReport("Petra Novak", 10,18, 81, 3);
